@@ -30,20 +30,52 @@
 
 // console.log(getFirstAndLast(['h', 'e', 'l', 'o']))
 
-const result = (arr: number[]): [number, number] => {
-  let max: number = 0
-  for (let num of arr) {
-    if (num > max){
-      max = num
+// const result = (arr: number[]): [number, number] => {
+//   let max: number = 0
+//   for (let num of arr) {
+//     if (num > max){
+//       max = num
+//     }
+//   }
+//   let min: number = arr[0]
+//   for (let num of arr) {
+//     if (num < min){
+//       min = num
+//     }
+//   }
+//   return [max, min]
+// }
+
+// console.log(result([9876, 333, 92, 102, 10101010]))
+
+// const safeParseJSON= (input: unknown): string => {
+//   if(typeof input == "string") {
+//     return JSON.parse(input)
+//   } else {
+//     throw Error("Unable to parse")
+//   }
+// }
+
+// console.log(safeParseJSON(20))
+
+
+const getType = (a: unknown): string => {
+  if (typeof a == "number") {
+    return "number"
+  } else if (typeof a == 'string') {
+    return "string"
+  } else if (typeof a == 'boolean') {
+    return "boolean"
+  } else if (Array.isArray(a)) {
+    return "array"
+  } else if (typeof a =='object') {
+    return "object"}
+    else {
+      return "Unknown type"
     }
-  }
-  let min: number = arr[0]
-  for (let num of arr) {
-    if (num < min){
-      min = num
-    }
-  }
-  return [max, min]
 }
 
-console.log(result([9876, 333, 92, 102, 10101010]))
+console.log(getType(1))
+console.log(getType("hello"))
+console.log(getType([]))
+console.log(getType({id: 100}))
